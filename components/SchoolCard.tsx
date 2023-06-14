@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, Dimensions, Pressable, Modal } from 'react-nati
 import { Icon } from 'react-native-elements';
 import * as Animatable from 'react-native-animatable'
 
+
 type SchoolDisplayProps = {
   prop1: string;
   prop2: string;
@@ -52,7 +53,9 @@ export function SchoolCard(props: SchoolDisplayProps) {
         <View style={styles.modalContainer}>
           <Animatable.View ref = {viewAnimation}>
             <View style={styles.modalContent}>
-              <Text>This is the Modal Component</Text>
+              <Text style = {styles.header}>Description</Text>
+              <View style = {styles.line}></View>
+              <Text style = {styles.description}> call the api that gets a description for you</Text>
               <Pressable onPress={handlePress}>
                 <Icon
                     name = 'done'></Icon>
@@ -86,8 +89,29 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 20,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     width: Dimensions.get('screen').width * 0.8,
     height: Dimensions.get('screen').height * 0.7,
+    shadowColor: 'blue',
+    shadowOffset: {width: 20, height: 9},
+    shadowRadius: 10,
+    shadowOpacity: 0.4
   },
+
+  header: {
+    fontSize: 40,
+    padding: 10
+  },
+  line : {
+   
+    width: Dimensions.get('screen').width * 0.7,
+    height: 2,
+    backgroundColor: 'grey'
+  
+  },
+  description: {
+    paddingTop: 13
+  }
+  
+  
 });

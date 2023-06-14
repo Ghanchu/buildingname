@@ -23,8 +23,8 @@ export default function TabOneScreen() {
   }
 
   const info = {
-    prop1: "Southern Illinois Baptist",
-    prop2: "Illinois, US",
+    prop1: "USB (Undergraduate Science Building)",
+    prop2: "623 Oxford Road Ann Arbor Michigan",
     prop3: handlePressParent
    
   }
