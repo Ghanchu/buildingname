@@ -59,7 +59,8 @@ export function SchoolCard(props: SchoolDisplayProps) {
                 <Text style={styles.header}>{data.Room}</Text>
                 <View style={styles.line}></View>
                 <Text style={styles.description}>{data.Address}</Text>
-                <Text>{data.RoomCount}</Text>
+                <View style = {styles.break}></View>
+                <Text>Class Size: {data.RoomCount}</Text>
                 <Pressable onPress={handlePress}>
                   <Icon name="done"></Icon>
                 </Pressable>
@@ -121,4 +122,8 @@ const styles = StyleSheet.create({
   description: {
     paddingTop: 13,
   },
+
+  break: {
+    padding: 10
+  }
 });
