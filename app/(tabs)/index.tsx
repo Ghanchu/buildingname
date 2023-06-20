@@ -13,6 +13,7 @@ export default function TabOneScreen() {
   const [activeModal, setActiveModal] = useState(false)
   const [term, setTerm] = useState('null')
   
+  
 
   const handlePressParent = () => {
     if(activeModal == true) {
@@ -22,6 +23,11 @@ export default function TabOneScreen() {
       setActiveModal(true)
     }
   }
+
+
+  
+
+  
 
   
   
