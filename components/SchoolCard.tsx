@@ -2,17 +2,22 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Text, View, StyleSheet, Dimensions, Pressable, Modal } from 'react-native';
 import { Icon } from 'react-native-elements';
 import * as Animatable from 'react-native-animatable'
+import { searchvalue } from '../src/searchvalue';
+
 
 
 type SchoolDisplayProps = {
-  prop1: string;
+  prop1: Function;
   prop2: string;
-  prop3: Function;
+  
 };
 
 export function SchoolCard(props: SchoolDisplayProps) {
   const [modalVisible, setModalVisible] = useState(false);
   const viewAnimation = useRef<Animatable.View & View>(null)
+  const [data, setData] = useState<any>('null')
+  searchvalue(setData, props.prop2)
+
 
   useEffect(() => {
     if (modalVisible) {
@@ -37,15 +42,15 @@ export function SchoolCard(props: SchoolDisplayProps) {
 
   const handlePress = () => {
     setModalVisible(!modalVisible);
-    props.prop3();
+    props.prop1();
   };
 
   return (
     <View>
       <Pressable onPress={handlePress}>
         <View style={styles.container}>
-          <Text>{props.prop1}</Text>
-          <Text>{props.prop2}</Text>
+          <Text>{data.Room}</Text>
+          <Text>{data.Campus}</Text>
         </View>
       </Pressable>
 
@@ -53,9 +58,10 @@ export function SchoolCard(props: SchoolDisplayProps) {
         <View style={styles.modalContainer}>
           <Animatable.View ref = {viewAnimation}>
             <View style={styles.modalContent}>
-              <Text style = {styles.header}>Description</Text>
+              <Text style = {styles.header}>{data.Room}</Text>
               <View style = {styles.line}></View>
-              <Text style = {styles.description}> call the api that gets a description for you</Text>
+              <Text style = {styles.description}>{data.Address}</Text>
+              <Text>{data.RoomCount}</Text>
               <Pressable onPress={handlePress}>
                 <Icon
                     name = 'done'></Icon>

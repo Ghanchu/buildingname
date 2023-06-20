@@ -5,8 +5,14 @@ import { StyleSheet } from "react-native";
 import { Dimensions } from "react-native";
 import { useEffect } from "react";
 import { Icon } from "react-native-elements";
+import { searchvalue } from "../src/searchvalue";
+import { SchoolCard } from "./SchoolCard";
 
-export function MySearchBar() {
+type searchbarprops ={
+  prop1:Function
+}
+
+export function MySearchBar(props: searchbarprops) {
   const [icon, setIcon] = useState("search");
   const press = useRef<TextInput>(null);
   const focus = () => {
@@ -22,14 +28,9 @@ export function MySearchBar() {
   };
 
   let [value, setValue] = useState("");
-  const SearchValue = () => {
-    return value;
-  };
+  
 
-  useEffect(() => {
-    // call an api that returns values
-    SearchValue();
-  }, [value]);
+ 
 
   return (
     <View style={styles.viewcontainer}>
@@ -48,7 +49,11 @@ export function MySearchBar() {
         onChangeText={(text) => setValue(text)}
         defaultValue={value}
         textAlign="left"
-        onSubmitEditing={(event) => focus()}
+        onSubmitEditing={(event) => {
+          focus();
+          props.prop1(value)
+          
+        }}
       />
     </View>
   );
