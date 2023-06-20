@@ -45,6 +45,7 @@ export function MySearchBar(props: searchbarprops) {
         ref={press}
         style={styles.textinput}
         placeholder="Search Acronynms or Buildings"
+        autoCapitalize= {"characters"}
         placeholderTextColor={"black"}
         onChangeText={(text) => setValue(text)}
         defaultValue={value}

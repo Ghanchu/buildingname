@@ -12,6 +12,7 @@ export default function TabOneScreen() {
 
   const [activeModal, setActiveModal] = useState(false)
   const [term, setTerm] = useState('null')
+  
 
   const handlePressParent = () => {
     if(activeModal == true) {
@@ -41,6 +42,7 @@ export default function TabOneScreen() {
      
         <MySearchBar {...searchbar}/>
         {term != 'null' && <SchoolCard {...schoolcardstuff}/>}
+      <Text>Directions: Just enter the code for your class on the schedule and it will tell you where to go</Text>
         
         
     </View>
