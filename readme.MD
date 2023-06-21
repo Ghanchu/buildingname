@@ -1,0 +1,1 @@
+This is a mobile app, you can use expo to run it on android or on ios. This application gives you an adress, building, and campus, based on a University of Michigan Classroom code. It consumes the University of Michigan classroom and spaces API in order to do so. It is made in React.tsx
